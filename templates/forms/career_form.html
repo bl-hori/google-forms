@@ -1,0 +1,23 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<h2>キャリアフォーム</h2>
+
+<div class="ui segment">
+    <form class="ui form" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="field">
+            <h3 class="ui dividing header">{{ field.label }}</h3>
+            <div class="description">
+                {{ field.help_text | safe }}
+                <br>
+            </div>
+            {{ field.errors }}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button class="ui button primary" type="submit">送信</button>
+    </form>
+</div>
+{% endblock %}
