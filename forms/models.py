@@ -102,3 +102,11 @@ class CareerFormModel(models.Model):
             ('異動希望なし（特に異動は希望しない）', '異動希望なし（特に異動は希望しない）'),
         )
     )
+    timestamp = models.DateTimeField(
+        'タイムスタンプ',
+        auto_now_add=True,
+    )
+    email = models.CharField(
+        'メールアドレス',
+        max_length=255,
+    )
