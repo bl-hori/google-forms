@@ -14,8 +14,10 @@ class CareerFormView(FormView):
     def get_initial(self):
         form_value = super().get_initial()
         user = self.request.user
-        if user.id and user.careerformmodel_set.all().count() > 0:
-            form_value.update(vars(user.careerformmodel_set.last()))
+        if user.id:
+            current_career_form = CareerFormModel.objects.filter(email=user.email).order_by('-timestamp').first()
+            if current_career_form:
+                form_value.update(vars(current_career_form))
 
         return form_value
 
