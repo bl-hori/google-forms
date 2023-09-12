@@ -8,7 +8,7 @@ class CareerFormModel(models.Model):
         verbose_name = 'キャリアフォーム'
         verbose_name_plural = 'キャリアフォーム'
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     question_01 = models.TextField(
         "当社入社前の職歴について記載ください。（年/社名/業種）",
