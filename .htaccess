@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /hrms/index.cgi/$1 [QSA,L]
+
+Require ip 210.174.178.0/24
+
+AuthUserFile "/home/blrecruit/broadleaf.co.jp/public_html/lab/hrms/.htpasswd"
+AuthName "Member Site"
+AuthType BASIC
+require valid-user
