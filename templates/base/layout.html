@@ -12,14 +12,21 @@
 
 <body>
     <div class="ui stackable inverted menu">
-        <a class="item">Google Forms</a>
+        <a class="item" href="{% url 'home' %}">Google Forms</a>
         <div class="right menu">
-            <a class="item">
+            {% if request.user.is_authenticated %}
+            <a class="item">{{ user.username }}</a>
+            <a class="item" href="{% url 'logout' %}">
+                Log out
+            </a>
+            {% else %}
+            <a class="item" href="{% url 'login' %}">
                 Log in
             </a>
-            <a class="item">
+            <a class="item" href="{% url 'signup' %}">
                 Sign up
             </a>
+            {% endif %}
         </div>
     </div>
 

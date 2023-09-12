@@ -1,0 +1,11 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<h1>Login</h1>
+
+<form class="ui form" action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="ui button" type="submit">登録</button>
+</form>
+{% endblock %}
